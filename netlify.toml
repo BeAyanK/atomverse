@@ -1,5 +1,21 @@
+# netlify.toml
 [[headers]]
   for = "/*.js"
   [headers.values]
     Content-Type = "application/javascript"
     X-Content-Type-Options = "nosniff"
+
+[[headers]]
+  for = "/*.jsx"
+  [headers.values]
+    Content-Type = "application/javascript"
+    X-Content-Type-Options = "nosniff"
+
+[build]
+  command = "npm run build"
+  publish = "dist"
+  functions = "functions"  # Add even if not using functions
+
+[dev]
+  framework = "vite"
+  targetPort = 5173
